@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "test": "mocha"
+  },
+  "name": "tennis_score",
+  "version": "1.0.0",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "Daniele Trovato",
+  "license": "ISC",
+  "description": "Score keeper for tennis game"
+}
