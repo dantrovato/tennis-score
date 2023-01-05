@@ -49,6 +49,12 @@ function Game(server, receiver) {
 
   // increment the score referenced by playerName in the this.scores object
   this.pointTo = function (playerName) {
+    if (![server, receiver].includes(playerName)) {
+      // if (this.scores[playerName] === undefined) {
+      // if (!this.scores.hasOwnProperty(playerName)) {
+      throw new Error(`player ${playerName} doesn't exist`);
+    }
+
     this.scores[playerName] += 1;
   };
 

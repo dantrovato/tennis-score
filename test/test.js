@@ -1,8 +1,25 @@
 const assert = require("assert");
-const app = require("../app.js");
-const Game = app.Game;
+const { Game } = require("../app.js");
 
 describe("Game", function () {
+  describe("#pointTo()", function () {
+    it("should throw error player b doesn't exist", function () {
+      const game = new Game("d", "c");
+
+      assert.throws(() => {
+        game.pointTo("b");
+      }, /player b doesn't exist/);
+    });
+
+    it("should throw error player toString doesn't exist", function () {
+      const game = new Game("d", "c");
+
+      assert.throws(() => {
+        game.pointTo("toString");
+      }, /player toString doesn't exist/);
+    });
+  });
+
   describe("#score()", function () {
     it("should return d: 15, c: 0", function () {
       const game = new Game("d", "c");
@@ -76,6 +93,16 @@ describe("Game", function () {
       game.pointTo("c");
       game.pointTo("c");
       game.pointTo("c");
+      game.pointTo("c");
+      assert.equal(game.score(), "game c");
+    });
+
+    it("should return game c", function () {
+      const game = new Game("d", "c");
+      game.pointTo("c"); // 0 15
+      game.pointTo("c"); // 0 30
+      game.pointTo("c"); // 0 40
+      game.pointTo("c"); // game c
       game.pointTo("c");
       assert.equal(game.score(), "game c");
     });

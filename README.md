@@ -1,7 +1,6 @@
 # Tennis score
 
-This code challenge is about implementing a simple tennis score. Each set is one game.
-We highly encourage you to write tests to implement this solution.
+This is tennis score javascript application using Test Driven Development
 
 ## Mechanism
 
